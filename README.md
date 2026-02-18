@@ -1,30 +1,30 @@
-# Test with Actions
+# Test con Actions
 
-_Protect your code with automated unit tests and coverage reports._
+_Proteggi il tuo codice con unit test automatizzati e report di copertura._
 
-## Welcome
+## Benvenuto
 
-- **Who is this for**: Developers, DevOps Engineers, new GitHub users, Testing Engineers
-- **What you'll learn**: What continuous integration is, how to create a workflow with GitHub Actions for testing, and how to enforce it.
-- **What you'll build**: We'll enforce test coverage on sample Python code to run tests against several versions of python in parallel and report results to a pull request, protecting our production version.
-- **Prerequisites**:
+- **A chi è rivolto**: Sviluppatori, DevOps Engineer, nuovi utenti GitHub, Testing Engineer
+- **Cosa imparerai**: Cos'è la continuous integration, come creare un workflow con GitHub Actions per i test e come applicarlo.
+- **Cosa costruirai**: Imporremo la test coverage su codice Python di esempio per eseguire test su diverse versioni di python in parallelo e riportare i risultati in una pull request, proteggendo la nostra versione di produzione.
+- **Prerequisiti**:
   - [Hello GitHub Actions](https://github.com/skills/hello-github-actions)
-- **How long**: This course takes less than 60 minutes to complete.
+- **Durata**: Questo corso richiede meno di 60 minuti per essere completato.
 
-In this course, you will:
+In questo corso:
 
-1. Open and run tests in an existing sample project
-2. Add a testing workflow through the GitHub web interface
-3. Add a coverage workflow in the code editor
-4. Investigate and fix a failed test
-5. Enforce tests to pass before merging code changes
+1. Aprirai ed eseguirai test in un progetto di esempio esistente
+2. Aggiungerai un workflow di test tramite l'interfaccia web di GitHub
+3. Aggiungerai un workflow di copertura nell'editor di codice
+4. Indagherai e correggerai un test fallito
+5. Imporrai il passaggio dei test prima di unire le modifiche al codice
 
-### How to start this exercise
+### Come iniziare questo esercizio
 
-1.  Right-click **[Start Exercise](../../actions/workflows/0-start-exercise.yml)** and open it in a new tab.
-2.  Click the **Run workflow** button.
-3.  Select the `main` branch and click the green **Run workflow** button.
-4.  Wait about 20 seconds and refresh this page.
+1.  Fai clic con il tasto destro su **[Start Exercise](../../actions/workflows/0-start-exercise.yml)** e aprilo in una nuova scheda.
+2.  Fai clic sul pulsante **Run workflow**.
+3.  Seleziona il branch `main` e fai clic sul pulsante verde **Run workflow**.
+4.  Attendi circa 20 secondi e aggiorna questa pagina.
 
 ---
 

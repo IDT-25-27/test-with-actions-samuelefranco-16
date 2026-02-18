@@ -1,42 +1,42 @@
-## Step 2: Workflow files
+## Passo 2: File Workflow
 
-The best way to add automation to your project's repository is with a GitHub Actions Workflow. Let's look at the anatomy of a workflow then create 2 of them.
+Il modo migliore per aggiungere automazione al repository del tuo progetto è con un GitHub Actions Workflow. Diamo un'occhiata all'anatomia di un workflow, poi ne creiamo 2.
 
-### What are the parts of workflow?
+### Quali sono le parti di un workflow?
 
-![An illustration with a left half and a right half. On the left: illustration of how GitHub Actions terms are encapsulated. At the highest level: workflows and event triggers. Inside workflows: jobs and definition of the build environment. Inside jobs: steps. Inside steps: a call to an action. On the right: the evaluated sequence: workflow, job, step, action.](https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/github-actions-workflow-diagram.png?raw=true)
+![Un'illustrazione con una metà sinistra e una destra. A sinistra: illustrazione di come i termini di GitHub Actions sono incapsulati. Al livello più alto: workflow e trigger di eventi. All'interno dei workflow: job e definizione dell'ambiente di build. All'interno dei job: step. All'interno degli step: una chiamata a un'action. A destra: la sequenza valutata: workflow, job, step, action.](https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/github-actions-workflow-diagram.png?raw=true)
 
-- **Workflow**: A unit of automation from start to finish. It begins when the trigger (`on`) matches an activity in the repository. It consists of 1 or more jobs.
+- **Workflow**: Un'unità di automazione dall'inizio alla fine. Inizia quando il trigger (`on`) corrisponde a un'attività nel repository. Consiste in 1 o più job.
 
-- **Jobs**: The workflow's jobs each run in their own isolated environments and can be configured differently. They run in parallel unless configured otherwise or dependencies are set.
+- **Jobs**: I job del workflow vengono eseguiti ciascuno nei propri ambienti isolati e possono essere configurati in modo diverso. Vengono eseguiti in parallelo a meno che non sia configurato diversamente o siano impostate dipendenze.
 
-- **Steps**: The steps area is a series of related actions that achieve a job's goal. A step can be a pre-made _Action_ from the Actions Marketplace, a private Action, a local custom script, or even direct code.
+- **Steps**: L'area degli step è una serie di action correlate che raggiungono l'obiettivo di un job. Uno step può essere un'_Action_ pre-fatta dall'Actions Marketplace, un'Action privata, uno script locale personalizzato o anche codice diretto.
 
-- **Action**: Each step is an _Action_, a piece of automation written in a way that is compatible with workflows. Actions can be written by GitHub, by the open source community, or specific to the project.
+- **Action**: Ogni step è un'_Action_, un pezzo di automazione scritto in modo compatibile con i workflow. Le Action possono essere scritte da GitHub, dalla comunità open source o specifiche per il progetto.
 
-In the above `Example Workflow` file, it will start when any commits are pushed to the repository on any branch. It will run 1 job with the name `build`. That job's first step uses a pre-made _Action_ from the `actions` organization named `checkout` that clones the code from the repository into the job's environment.
+Nel file `Example Workflow` sopra, inizierà quando qualsiasi commit viene pushato nel repository su qualsiasi branch. Eseguirà 1 job con il nome `build`. Il primo step di quel job usa un'_Action_ pre-fatta dall'organizzazione `actions` chiamata `checkout` che clona il codice dal repository nell'ambiente del job.
 
-You can explore all of the configuration options in the [GitHub Actions Docs](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions).
+Puoi esplorare tutte le opzioni di configurazione nella [GitHub Actions Docs](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions).
 
-### ⌨️ Activity: Add a workflow to run tests
+### ⌨️ Attività: Aggiungi un workflow per eseguire i test
 
-1. Open a web browser tab and navigate to this exercise repository. The Codespace is not needed right now.
+1. Apri una scheda del browser web e naviga verso questo repository di esercizi. Il Codespace non è necessario in questo momento.
 
-1. In the top navigation, select the **Actions** tab.
+1. Nella navigazione in alto, seleziona la scheda **Actions**.
 
-1. In the left navigation, above list of workflows, click the **New workflow** button.
+1. Nella navigazione a sinistra, sopra l'elenco dei workflow, fai clic sul pulsante **New workflow**.
 
-   <img width="250" alt="image" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/new-workflow-button.png?raw=true" />
+   <img width="250" alt="immagine" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/new-workflow-button.png?raw=true" />
 
-1. Enter `python package` into the search box and click the **Enter** button.
+1. Inserisci `python package` nella casella di ricerca e fai clic sul pulsante **Enter**.
 
-   <img width="300" alt="search box with 'python package' value" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/python-search-box.png?raw=true" />
+   <img width="300" alt="casella di ricerca con valore 'python package'" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/python-search-box.png?raw=true" />
 
-1. Find the **Python package** workflow and click the **Configure** button to open a file editor with a pre-made workflow. (Don't select the one using Anaconda)
+1. Trova il workflow **Python package** e fai clic sul pulsante **Configure** per aprire un editor di file con un workflow pre-fatto. (Non selezionare quello che usa Anaconda)
 
-   <img width="250" alt="image" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/python-package-configure.png?raw=true" />
+   <img width="250" alt="immagine" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/python-package-configure.png?raw=true" />
 
-1. Around line 6, simplify the `on` trigger. Remove the `push` trigger and keep the `pull_request` trigger.
+1. Intorno alla riga 6, semplifica il trigger `on`. Rimuovi il trigger `push` e mantieni il trigger `pull_request`.
 
    ```yml
    on:
@@ -44,7 +44,7 @@ You can explore all of the configuration options in the [GitHub Actions Docs](ht
        branches: ["main"]
    ```
 
-1. Around line 38, change the command to show more details in the logs.
+1. Intorno alla riga 38, cambia il comando per mostrare più dettagli nei log.
 
    ```yml
    - name: Test with pytest
@@ -52,36 +52,36 @@ You can explore all of the configuration options in the [GitHub Actions Docs](ht
        pytest --verbose
    ```
 
-1. Above the editor, on the right, click the **Commit changes...** button. Commit directly to the `main` branch.
+1. Sopra l'editor, a destra, fai clic sul pulsante **Commit changes...**. Committa direttamente nel branch `main`.
 
 <details>
-<summary>Having trouble? 🤷‍♂️</summary>
+<summary>Hai problemi? 🤷‍♂️</summary>
 
-Indention of `.yml` files is important. If you are getting syntax errors, that may be the reason.
+L'indentazione dei file `.yml` è importante. Se ottieni errori di sintassi, quella potrebbe essere la ragione.
 
-Finished workflow file: `.github/workflows/python-package.yml.example`
+File workflow finito: `.github/workflows/python-package.yml.example`
 
 </details>
 
-### ⌨️ Activity: Add a workflow to show test coverage
+### ⌨️ Attività: Aggiungi un workflow per mostrare la copertura dei test
 
-1. Switch to the VS Code Codespace.
+1. Passa al Codespace di VS Code.
 
-1. Check the status bar for a pending update. Click it to pull your recently committed workflow.
+1. Controlla la barra di stato per un aggiornamento in sospeso. Cliccaci per pullare il tuo workflow committato di recente.
 
-   <img width="130" alt="image" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/sync-changes-button.png?raw=true" />
+   <img width="130" alt="immagine" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/sync-changes-button.png?raw=true" />
 
-1. In the left navigation, select the **Explorer** tab to show the project files.
+1. Nella navigazione a sinistra, seleziona la scheda **Explorer** per mostrare i file del progetto.
 
-1. Expand the `.github/workflows/` folder.
+1. Espandi la cartella `.github/workflows/`.
 
-1. Add a new file with the following name and open it.
+1. Aggiungi un nuovo file con il seguente nome e aprilo.
 
    ```txt
    python-coverage.yml
    ```
 
-1. Enter the name and set it to trigger on pull requests targeting the `main` branch.
+1. Inserisci il nome e impostalo per attivarsi sulle pull request che puntano al branch `main`.
 
    ```yml
    name: Python Coverage
@@ -95,7 +95,7 @@ Finished workflow file: `.github/workflows/python-package.yml.example`
      pull-requests: write
    ```
 
-1. Add the `python-coverage` job and a first step that gets the repository content.
+1. Aggiungi il job `python-coverage` e un primo step che ottiene il contenuto del repository.
 
    ```yml
    jobs:
@@ -107,7 +107,7 @@ Finished workflow file: `.github/workflows/python-package.yml.example`
            uses: actions/checkout@v4
    ```
 
-1. Add steps to install Python and required packages.
+1. Aggiungi step per installare Python e i pacchetti richiesti.
 
    ```yml
    - name: Set up Python
@@ -123,14 +123,14 @@ Finished workflow file: `.github/workflows/python-package.yml.example`
        pip install pytest-cov==6.2.1
    ```
 
-1. Add steps to run the coverage report on the `src` folder.
+1. Aggiungi step per eseguire il report di copertura sulla cartella `src`.
 
    ```yml
    - name: Run tests and generate coverage details
      run: pytest --cov=src
    ```
 
-1. Add a final step that uses a pre-made GitHub Action to share the coverage report as a comment on the pull request.
+1. Aggiungi uno step finale che usa un'Action GitHub pre-fatta per condividere il report di copertura come commento sulla pull request.
 
    {% raw %}
 
@@ -148,18 +148,18 @@ Finished workflow file: `.github/workflows/python-package.yml.example`
 
    {% endraw %}
 
-1. Commit and push the changes to your `python-coverage.yml` file to the `main` branch.
+1. Committa e pusha le modifiche al file `python-coverage.yml` nel branch `main`.
 
-1. With both new workflows pushed to GitHub, Mona will review your work and post the next steps.
+1. Con entrambi i nuovi workflow pushati su GitHub, Mona revisionerà il tuo lavoro e posterà i passaggi successivi.
 
 > [!TIP]
-> Did you notice the many `uses:` statements? Those are pre-made steps from the free [Actions Marketplace](https://github.com/marketplace?type=actions). Consider trying one of them out before you create your own custom scripts (to maintain)! There are lots of awesome creations from the community!
+> Hai notato le molte dichiarazioni `uses:`? Sono step pre-fatti dall'[Actions Marketplace](https://github.com/marketplace?type=actions) gratuito. Considera di provarne uno prima di creare i tuoi script personalizzati (da mantenere)! Ci sono molte creazioni fantastiche dalla comunità!
 
 <details>
-<summary>Having trouble? 🤷‍♂️</summary>
+<summary>Hai problemi? 🤷‍♂️</summary>
 
-Indention of `.yml` files is important. If you are getting syntax errors, that may be the reason.
+L'indentazione dei file `.yml` è importante. Se ottieni errori di sintassi, quella potrebbe essere la ragione.
 
-Finished workflow file: `.github/workflows/python-coverage.yml.example`
+File workflow finito: `.github/workflows/python-coverage.yml.example`
 
 </details>

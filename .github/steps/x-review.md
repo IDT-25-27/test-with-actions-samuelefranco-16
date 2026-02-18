@@ -1,18 +1,18 @@
-## Review
+## Revisione
 
 <img src=https://octodex.github.com/images/Fintechtocat.png alt=celebrate width=300 align=right>
 
-Here's a recap of all the tasks you've accomplished in your repository:
+Ecco un riepilogo di tutte le attività che hai completato nel tuo repository:
 
-- We ran existing tests for a sample Python program in our Codespace.
-- You added a new workflow using the web interface.
-- You added a workflow using VS Code.
-- We adjusted the repository settings to include a Ruleset to protect the main branch.
+- Abbiamo eseguito test esistenti per un programma Python di esempio nel nostro Codespace.
+- Hai aggiunto un nuovo workflow utilizzando l'interfaccia web.
+- Hai aggiunto un workflow utilizzando VS Code.
+- Abbiamo modificato le impostazioni del repository per includere un Ruleset per proteggere il branch main.
 
-### What's next?
+### Qual è il prossimo passo?
 
-- Find existing Actions in the the free [Actions Marketplace](https://github.com/marketplace?type=actions).
-- Find more automation ideas from the [awesome actions](https://github.com/sdras/awesome-actions) repo.
-- Learn more about collaboration with the [Introduction to Repository Management](https://github.com/skills/introduction-to-repository-management) exercise.
-- Take another [GitHub Skills exercise](https://learn.github.com/skills).
-- To find projects to contribute to, check out [GitHub Explore](https://github.com/explore).
+- Trova Action esistenti nel [Actions Marketplace](https://github.com/marketplace?type=actions) gratuito.
+- Trova altre idee di automazione dal repository [awesome actions](https://github.com/sdras/awesome-actions).
+- Scopri di più sulla collaborazione con l'esercizio [Introduction to Repository Management](https://github.com/skills/introduction-to-repository-management).
+- Segui un altro [GitHub Skills exercise](https://learn.github.com/skills).
+- Per trovare progetti a cui contribuire, dai un'occhiata a [GitHub Explore](https://github.com/explore).

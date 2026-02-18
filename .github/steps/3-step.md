@@ -1,24 +1,24 @@
-## Step 3: Trigger the workflows
+## Passo 3: Attiva i workflow
 
-As specified in our workflows, they will only run when a pull request is targeting the `main` branch.
+Come specificato nei nostri workflow, verranno eseguiti solo quando una pull request punta al branch `main`.
 
-Pull requests have a nice advantage when a workflow is associated with them. The run status and results can be displayed directly in the conversation feed.
+Le pull request hanno un bel vantaggio quando un workflow è associato a esse. Lo stato dell'esecuzione e i risultati possono essere visualizzati direttamente nel feed della conversazione.
 
-### ⌨️ Activity: Start a PR and propose a code change
+### ⌨️ Attività: Avvia una PR e proponi una modifica al codice
 
-1. Return to the VS Code Codespace.
+1. Torna al Codespace di VS Code.
 
-1. Create a new branch based from `main` with the following name and **publish** it to GitHub.
+1. Crea un nuovo branch basato su `main` con il seguente nome e **pubblicalo** su GitHub.
 
    ```txt
    reenable-unit-test
    ```
 
-1. Double check that you are on the `reenable-unit-test` branch, then open the `tests/calculations_test.py` file.
+1. Controlla di essere sul branch `reenable-unit-test`, quindi apri il file `tests/calculations_test.py`.
 
-1. After investigating the code, we see a commented out test on line 56. Uncomment it to re-enable it.
+1. Dopo aver esaminato il codice, vediamo un test commentato alla riga 56. Rimuovi il commento per riabilitarlo.
 
-   > Hopefully it wasn't disable to get around testing! 😱
+   > Speriamo non sia stato disabilitato per evitare i test! 😱
 
    ```py
    def test_get_nth_fibonacci_ten():
@@ -33,9 +33,9 @@ Pull requests have a nice advantage when a workflow is associated with them. The
     assert result == 89
    ```
 
-1. Commit the changes and push them to GitHub.
+1. Committa le modifiche e pushale su GitHub.
 
-1. Return to the browser and create a pull request. Use the following details.
+1. Torna al browser e crea una pull request. Usa i seguenti dettagli.
 
    - **base:** `main`
    - **source:** `reenable-unit-test`
@@ -43,24 +43,24 @@ Pull requests have a nice advantage when a workflow is associated with them. The
 
    <br/>
    <details>
-   <summary><b>Having Trouble:</b> Can't create a pull request? 🤷‍♂️</summary>
+   <summary><b>Hai problemi:</b> Non riesci a creare una pull request? 🤷‍♂️</summary>
 
-   Did you accidentally commit to the `main` branch? Here is a command to undo the last commit and force update the repository on GitHub. Be careful not to go back too many steps though! You don't want to remove your new workflows!
+   Hai committato accidentalmente nel branch `main`? Ecco un comando per annullare l'ultimo commit e aggiornare forzatamente il repository su GitHub. Fai attenzione a non tornare indietro di troppi passaggi però! Non vuoi rimuovere i tuoi nuovi workflow!
 
    ```bash
    git reset --hard HEAD~1
    git push -f
    ```
 
-1. After the pull request is created, look near the Merge button to see many workflows running.
+1. Dopo aver creato la pull request, guarda vicino al pulsante Merge per vedere molti workflow in esecuzione.
 
-   - Our coverage workflow will fail, letting us know we have a test to fix.
+   - Il nostro workflow di copertura fallirà, facendoci sapere che abbiamo un test da correggere.
 
-1. With the pull request started, Mona should be busy checking your work and preparing the next steps.
+1. Con la pull request avviata, Mona dovrebbe essere impegnata a controllare il tuo lavoro e preparare i passaggi successivi.
 
 <details>
-<summary>Having trouble?  🤷‍♂️</summary>
+<summary>Hai problemi?  🤷‍♂️</summary>
 
-- If the checks don't appear updated, try refreshing the page. It's possible the workflow ran and the page just hasn't been updated with the change.
+- Se i controlli non appaiono aggiornati, prova ad aggiornare la pagina. È possibile che il workflow sia stato eseguito e la pagina non sia stata ancora aggiornata con la modifica.
 
 </details>

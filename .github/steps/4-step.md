@@ -1,65 +1,65 @@
-## Step 4: Enforce workflows
+## Passo 4: Imponi i workflow
 
-You may have noticed that the merge button was still active before our tests finished.
-Even worse, the some tests failed and there was nothing to prevent merging the broken code anyway! 😱
+Potresti aver notato che il pulsante merge era ancora attivo prima che i nostri test finissero.
+Peggio ancora, alcuni test sono falliti e non c'era nulla che impedisse di unire comunque il codice rotto! 😱
 
-Let's fix this to avoid anyone (accidentally) bypassing verification.
+Risolviamo questo problema per evitare che qualcuno (accidentalmente) aggiri la verifica.
 
-### ⌨️ Activity: Add branch protection
+### ⌨️ Attività: Aggiungi branch protection
 
-1. In the top navigation, select the **Settings** tab.
+1. Nella navigazione in alto, seleziona la scheda **Settings**.
 
-1. In the left navigation, select **Rules** and choose **Rulesets**.
+1. Nella navigazione a sinistra, seleziona **Rules** e scegli **Rulesets**.
 
-1. Click the **New ruleset** and select **New branch ruleset**. Use the following settings:
+1. Fai clic su **New ruleset** e seleziona **New branch ruleset**. Usa le seguenti impostazioni:
 
    - **Ruleset Name:** `Protect main`
    - **Enforcement status:** `Active`
-   - **Target branches:** (Add Target)
+   - **Target branches:** (Aggiungi Target)
      - **Include default branch**
      - **Include by pattern:** `main`
-   - **Require status checks to pass**: ☑️ (Add Checks)
+   - **Require status checks to pass**: ☑️ (Aggiungi Check)
      - `python-coverage`
 
    <br/>
 
-   > 🪧 **Note:** To keep the lesson simple, we are only checking the coverage workflow. Feel free to experiment though!
+   > 🪧 **Nota:** Per mantenere la lezione semplice, stiamo controllando solo il workflow di copertura. Sentiti libero di sperimentare però!
 
    <img width="300" alt="target branch settings" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/branch-protection-target-settings.png?raw=true" />
 
    <img width="300" alt="required status checks" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/required-status-checks.png?raw=true" />
 
-1. Click **Create**.
+1. Fai clic su **Create**.
 
-1. Navigate back to the pull request and refresh the page.
+1. Torna alla pull request e aggiorna la pagina.
 
-1. Scroll to the bottom to find failed workflows and the **Merge** button is now disabled! Nice! 🥰
+1. Scorri fino in fondo per trovare i workflow falliti e il pulsante **Merge** è ora disabilitato! Ottimo! 🥰
 
    <img width="500" alt="failed tests and disabled merge button" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/failed-tests-disabled-merge.png?raw=true" />
 
 > [!TIP]
-> Interested to learn more ways to prepare your project for collaboration? Check out the [Introduction to Repository Management](https://github.com/skills/introduction-to-repository-management) exercise next!
+> Interessato a imparare altri modi per preparare il tuo progetto per la collaborazione? Dai un'occhiata all'esercizio [Introduction to Repository Management](https://github.com/skills/introduction-to-repository-management) dopo!
 
-### Activity: Fix the broken test
+### Attività: Correggi il test rotto
 
-Lets investigate why our testing workflow failed. Is it misconfigured or is some code bad? Maybe there was a reason that test was disabled?!
+Indaghiamo perché il nostro workflow di test è fallito. È mal configurato o qualche codice è errato? Forse c'era un motivo per cui quel test era disabilitato?!
 
-1. Click on the `Python Coverage` workflow to view the logs. It will automatically navigate to the failed logs.
+1. Fai clic sul workflow `Python Coverage` per visualizzare i log. Navigherà automaticamente ai log falliti.
 
-1. After some inspection, there are 2 issues preventing merging.
+1. Dopo qualche ispezione, ci sono 2 problemi che impediscono il merge.
 
-   - 1 test is failing.
-   - Coverage is below the 90% requirement.
+   - 1 test sta fallendo.
+   - La copertura è inferiore al requisito del 90%.
 
-1. Switch to the VS Code Codespace.
+1. Passa al Codespace di VS Code.
 
-1. Open the `tests/calculations_test.py` file.
+1. Apri il file `tests/calculations_test.py`.
 
-1. After some investigation, we see the broken test might have been commented out because it was designed incorrectly.
+1. Dopo qualche indagine, vediamo che il test rotto potrebbe essere stato commentato perché era progettato in modo errato.
 
-   - A quick google search shows that the 10th entry in the Fibonacci sequence is `55`, not `89`.
+   - Una rapida ricerca su google mostra che la decima voce nella sequenza di Fibonacci è `55`, non `89`.
 
-1. Change the test to use the correct assert value.
+1. Modifica il test per usare il valore di assert corretto.
 
    ```bash
    def test_get_nth_fibonacci_ten():
@@ -74,23 +74,23 @@ Lets investigate why our testing workflow failed. Is it misconfigured or is some
       assert result == 55
    ```
 
-1. Commit and push the corrected test code then wait for the workflows to run again.
+1. Committa e pusha il codice di test corretto, quindi attendi che i workflow vengano eseguiti di nuovo.
 
-   - This time the tests pass and we receive a detailed coverage report.
+   - Questa volta i test passano e riceviamo un report di copertura dettagliato.
 
-## Activity: Fix low test coverage
+## Attività: Correggi la bassa copertura dei test
 
-With our test corrected, we are now getting coverage results.
-Unfortunately it is below the 90% requirement.
-Let's add some more tests to increase coverage.
+Con il nostro test corretto, ora stiamo ottenendo risultati di copertura.
+Purtroppo è inferiore al requisito del 90%.
+Aggiungiamo altri test per aumentare la copertura.
 
-1. Let's add 2 tests to increase coverage.
-Alternately, you can ask GitHub Copilot to find missing test cases by expanding the prompt below.
+1. Aggiungiamo 2 test per aumentare la copertura.
+In alternativa, puoi chiedere a GitHub Copilot di trovare casi di test mancanti espandendo il prompt qui sotto.
 
 
-   1. Open the `tests/calculations_test.py` file.
+   1. Apri il file `tests/calculations_test.py`.
 
-   1. Add the following 2 entries.
+   1. Aggiungi le seguenti 2 voci.
 
       ```py
       def test_area_of_circle_negative_radius():
@@ -115,7 +115,7 @@ Alternately, you can ask GitHub Copilot to find missing test cases by expanding 
       ```
 
    <details>
-   <summary>🪧 <b>Show:</b> Prompt</summary>
+   <summary>🪧 <b>Mostra:</b> Prompt</summary>
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
@@ -125,15 +125,15 @@ Alternately, you can ask GitHub Copilot to find missing test cases by expanding 
 
    </details>
 
-1. Commit and push the 2 new tests.
+1. Committa e pusha i 2 nuovi test.
 
-1. Wait a moment for the workflows to run one final time.
+1. Attendi un momento che i workflow vengano eseguiti un'ultima volta.
 
-   - The coverage comment will update to 100%.
-   - The merge button will activate!
+   - Il commento sulla copertura si aggiornerà al 100%.
+   - Il pulsante merge si attiverà!
 
-1. Click the **Merge** button.
+1. Fai clic sul pulsante **Merge**.
 
-   <img width="500" alt="image" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/merge-button-active.png?raw=true" />
+   <img width="500" alt="immagine" src="https://github.com/IDT-25-27/idt-25-27-classroom-173794-test-with-actions-test-with-actions-1/blob/main/.github/images/merge-button-active.png?raw=true" />
 
-1. With full coverage, all tests passing, and the pull request merged, Mona will share a final review. Congrats, you are all done!
+1. Con la copertura completa, tutti i test passati e la pull request unita, Mona condividerà una revisione finale. Congratulazioni, hai finito!
